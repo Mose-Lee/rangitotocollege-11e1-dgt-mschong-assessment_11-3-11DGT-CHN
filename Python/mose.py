@@ -22,6 +22,5 @@ btn.config(text="Click Here")
 btn.config(command=help)
 btn.pack()
 
-
 win.mainloop()
   
