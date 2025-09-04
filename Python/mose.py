@@ -3,7 +3,7 @@ import tkinter as tk
 #name entering function
 def enter_name():
     global user_name
-    user_name = entry.get()
+    user_name = name_entry.get()
     if user_name == "":
         user_name = "Anonymous"
     name_frame.pack_forget()
@@ -12,13 +12,13 @@ def enter_name():
 
 #--------------------------------------game codes--------------------------------------------------
 def start_brick():
-
+    print("")
 def start_maze():
-
+    print("")
 def start_click():
-
+    print("")
 def show_ranking():
-
+    print("")
 
 
 
@@ -43,7 +43,7 @@ name_entry = tk.Entry(name_frame, font=("Arial", 14))
 name_entry.pack(pady = 10)
 
 #button to submit their name
-submit_button = tk.Button(name_frame, text="Submit",font= (Arial,20), command=enter_name)
+submit_button = tk.Button(name_frame, text="Submit",font= ("Arial,20"), command=enter_name)
 submit_button.pack(pady = 10)
 
 name_frame.pack(expand=True)
@@ -53,30 +53,31 @@ name_frame.pack(expand=True)
 menu_frame = tk.Frame(win, bg="black")
 
 #label title on the menu screen
-menu_title = tk.Label(menu_frame, text="Retro Fun Games", font=("Arial", 30), fg="white", bg="white")
+menu_title = tk.Label(menu_frame, text="Retro Fun Games", font=("Arial", 30), fg="white", bg="black")
 menu_title.pack(pady=20)
 
 #=======start buttons and button frame========
-btn_frame = tk.Frame(menu_frame)
+btn_frame = tk.Frame(menu_frame,bg="black")
 btn_frame.pack()
 
-maze_game = tk.Button(btn_frame, text="Maze Game", font=("Arial", 30),width=15,height=5, command=start_maze fg="white", bg ="blue")
+maze_game = tk.Button(btn_frame, text="Maze Game", font=("Arial", 30), width=15, height=5, command=start_maze, fg="white", bg ="blue")
 
-brick_game = tk.Button(btn_frame, text="Brick Breaker", font=("Arial", 30), fg="white", bg ="red", command=start_brick)
+brick_game = tk.Button(btn_frame, text="Brick Breaker", font=("Arial", 30),width=15, height=5, fg="white", bg ="red", command=start_brick)
 
-click_game = tk.Button(btn_frame, text="Click Game", font=("Arial", 30), fg="white", bg ="green",command=start_click)
+click_game = tk.Button(btn_frame, text="Click Game", font=("Arial", 30),width=15, height=5, fg="white", bg ="green",command=start_click)
 
-ranking = tk.Button(btn_frame, text="Ranking", font=("Arial", 30), fg="white", bg ="yellow",command=show_ranking)
+ranking = tk.Button(btn_frame, text="Ranking", font=("Arial", 30),width=15, height=5, fg="white", bg ="yellow",command=show_ranking)
 
-maze_game.grid(row=0,column=0,padx=10, pady=10,sticky="nsew")
-brick_game.grid(row=0,)
+maze_game.grid(row=0,column=0,padx=10, pady=10)
+brick_game.grid(row=0,column=1,padx=10,pady=10)
+click_game.grid(row=1,column=0,padx=10,pady=10)
+ranking.grid(row=1, column=1, padx=10, pady=10)
 
 for i in range(2):
-    btn_frame.grid_rowconfigure(i, weight=1)
     btn_frame.grid_columnconfigure(i, weight=1)
+    btn_frame.grid_rowconfigure(i, weight=1)
 
 
-menu_frame.pack(expand=True)
 
 win.mainloop()
   
